@@ -1,0 +1,60 @@
+[{
+    "name": "Toulouse",
+    "country": "fr",
+    "climate": "C",
+    "elevation": 150
+},
+{
+    "name": "Paris",
+    "country": "fr",
+    "climate": "C",
+    "elevation": 35
+},
+{
+    "name": "San Fransisco",
+    "country": "us",
+    "climate": "C",
+    "elevation": 16
+},
+{
+    "name": "Montreal",
+    "country": "ca",
+    "climate": "D",
+    "elevation": 35
+},
+{
+    "name": "Darwin",
+    "country": "au",
+    "climate": "A",
+    "elevation": 37
+},
+{
+    "name": "Tignes",
+    "country": "fr",
+    "climate": "C",
+    "elevation": 3747
+},
+{
+    "name": "Sydney",
+    "country": "au",
+    "climate": "C",
+    "elevation": 19
+},
+{
+    "name": "Juneau",
+    "country": "us",
+    "climate": "E",
+    "elevation": 17
+},
+{
+    "name": "Marseille",
+    "country": "fr",
+    "climate": "C",
+    "elevation": 12
+},
+{
+    "name": "Lyon",
+    "country": "fr",
+    "climate": "C",
+    "elevation": 213
+}]
