@@ -64,6 +64,12 @@ _NB: This step should also be automatic if my first API choice have been smarter
 
 ### Step 4: Simulate data
 
+First of all, we simulate the pressure because we have an accurate idea of what this could be thanks
+to the [formula of barometric leveling](https://en.wikipedia.org/wiki/Barometric_formula).
+We introduce noise to this estimation to get different value at each run.
+
+Now, we know that if the pressure value is lower than usual it is more likely to rain. 
+
 #### Relations between weather variables
 
 

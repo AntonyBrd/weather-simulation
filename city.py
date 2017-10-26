@@ -26,28 +26,34 @@ class City:
         self.climate = climate
         self.lat = 0
         self.lon = 0
-        # TODO: handle elevation
+        # TODO: handle elevation with a other method
         self.elevation = elevation
         self.get_coord()
 
-    def build_from_json(self, json_city):
+    @staticmethod
+    def build_from_json(json_city):
         """
-        
-        :param json_city: 
-        :return: 
+        Create a city instance from input json data.
+        :param json_city: a json object containing City attributes
+        :return: a City object
         """
-        return self(json_city['name'], json_city['country'], json_city['climate'], json_city['elevation'])
+        return City(json_city['name'], json_city['country'], json_city['climate'], json_city['elevation'])
+
+    def get_coord(self):
+        """
+        Compute coordinates from openweathermap API.
+        NB: It uses a private key, with developer role.
+        """
+        response = requests.get(
+            'http://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}'.format(self.name, self.country, KEY))
+        if response.status_code == 200:
+            self.lat = response.json()['coord']['lat']
+            self.lon = response.json()['coord']['lon']
 
     def to_string(self):
         """
         Return a row with all city information
-        :return: 
+        :return: a string with all the city information
         """
-        return '|'.join(self.name, self.country, self.climate, '{};{};{}'.format(self.lon, self.lat, self.elevation))
-
-    def get_coord(self):
-        response = requests.get(
-            'http://api.openweathermap.org/data/2.5/weather?q={},{}&appid='.format(self.name, self.country) + KEY)
-        if response.status_code == 200:
-            self.lat = response.json()['coord']['lat']
-            self.lon = response.json()['coord']['lon']
+        return '|'.join([self.name, self.country, self.climate, ','.join([str(self.lon), str(self.lat),
+                                                                          str(self.elevation)])])
