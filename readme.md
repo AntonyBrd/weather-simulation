@@ -3,11 +3,10 @@
 This small project introduce a way to generate fake weather data with a very small code base. 
 The weather data is generated for the following cities:
 - Sydney
-- Perth
-- Melbourne
-- Adelaide
 - Darwin
-- Ockland
+- Paris
+- Toulouse
+- ...
 
 ## How to use the application
 
@@ -24,12 +23,13 @@ Generating data files is as simple as running the command :
 python main.py
 ```
 
+Be careful, the application generates a file that you may have to delete
+if you want to re-run it. 
+
 Once `pytest` is installed, you can run unit tests with:
 ```
 pytest
 ```
- 
-
 
 ## The approach
 
@@ -60,21 +60,29 @@ _NB: This step should also be automatic if my first API choice have been smarter
 
 ### Step 3: Use an API to get City position
 
-
+I choose to use the [OpenWeatherMap API](https://openweathermap.org/current), which turned out not to be a great idea. 
+Indeed, I do not use provided weather information but only the coordinate and O do not get
+the city elevation data.
 
 ### Step 4: Simulate data
 
-First of all, we simulate the pressure because we have an accurate idea of what this could be thanks
+First of all, we simulate the date, randomly following the uniform law.
+
+One the date is available, we simulate the pressure because we have an accurate idea of what this could be thanks
 to the [formula of barometric leveling](https://en.wikipedia.org/wiki/Barometric_formula).
 We introduce noise to this estimation to get different value at each run.
 
-Now, we know that if the pressure value is lower than usual it is more likely to rain. 
+Now, we know that if the pressure value is lower than usual it is more likely to rain, or to have
+a low temperature. Depending on season and pressure, we can simulate the temperature using a very basic
+algorithm, which works like a decision tree.
 
-#### Relations between weather variables
-
+Following this process, we simulate the condition and finally the humidity,
+each step having access to more information than the previous one.
 
  
 ### Step 5: Write the results to a file
+
+Very simple step, using basic Python.
 
 ## How to improve this application
 
@@ -95,6 +103,13 @@ Working with people that have a good understanding of these model would definite
 application.
 
 ### Use Machine Learning 
+
+#### Supervised learning to predict values
+
+The same way we have computed each feature one by one, the next depending on
+the previous one. We could have train different algorithms to predict those values.
+
+#### Neural nets to invent data
 
 There are Neural Network specialised in data generation that it would be great to test.
 For example, RNN are able to write theatre piece that have a very good structure, with a lot of input data we could 
