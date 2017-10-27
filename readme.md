@@ -84,7 +84,7 @@ the city elevation data.
 
 First of all, we simulate the date, randomly following the uniform law.
 
-One the date is available, we simulate the pressure because we have an accurate idea of what this could be thanks
+Once the date is available, we simulate the pressure because we have an accurate idea of what this could be thanks
 to the [formula of barometric leveling](https://en.wikipedia.org/wiki/Barometric_formula).
 We introduce noise to this estimation to get different value at each run.
 
@@ -100,6 +100,31 @@ each step having access to more information than the previous one.
 
 Very simple step, using basic Python.
 
+## Code description
+
+Dealing with weather simulation, we need to defined a set of concepts:
+
+- a city is defined by the following attributes: name, country, coordinate (lat/lon), elevation.
+- the weather in a city makes sense only at a specific moment. Here is the attribute list for weather: city, date,
+conditions, pressure, temperature, and humidity.
+
+Each concept has its own class, its own file, and its own objective.
+
+#### city.py
+
+The city file is responsible for the web service call, to get city coordinates.
+
+#### weather.py
+
+The weather file handles the simulation, all the random aspect of the application and all the business
+rules.
+
+#### main.py
+
+This script launches the application by reading json input data from the data directory.
+For each city being in the input file, it simulates the weather and write the result into a file. The
+process is done 10 times increase the outfile file size.
+
 ## How to improve this application
 
 There are many ways to improve this project, let's try to make it smarter.
@@ -107,7 +132,7 @@ There are many ways to improve this project, let's try to make it smarter.
 ### Solve TODOs
 
 The way the elevation is handled is quite bad. [Here](https://visibleearth.nasa.gov/view.php?id=73934),
-you can find an image of the world map with evelation for red values.
+you can find an image of the world map with elevation for red values.
 
 ### Use better "business" rules (here: physical models)
 
