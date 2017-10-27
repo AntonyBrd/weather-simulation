@@ -132,8 +132,8 @@ class Weather:
         :return: generated condition in the previously defined CONDITIONS list
         """
         rand = np.random.uniform(0, 1, 1)
-        low_pressure_factor = .25 if self.low_pressure else 0
-        low_temperature_factor = .1 if self.temperature < 3 else 0
+        low_pressure_factor = .35 if self.low_pressure else 0
+        low_temperature_factor = .35 if self.temperature < 3 else 0
         winter_factor = .3 if not self.is_summer() else 0
         if self.city.climate == 'A':
             climate_factor = 0
@@ -142,7 +142,7 @@ class Weather:
         else:
             climate_factor = 1.2
 
-        if rand < climate_factor * (low_pressure_factor + low_temperature_factor):
+        if rand < climate_factor * low_temperature_factor:
             self.condition = CONDITIONS[0]
         elif rand < climate_factor * (low_pressure_factor + winter_factor):
             self.condition = CONDITIONS[1]

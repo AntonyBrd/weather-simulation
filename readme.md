@@ -26,7 +26,7 @@ The weather data is generated for the following cities:
 - install pip
 - run the following command
 ```bash
-pip intall -r requirement.txt
+pip install -r requirement.txt
 ```
 
 Generating data files is as simple as running the command :
