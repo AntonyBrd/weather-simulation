@@ -57,7 +57,7 @@ precision, to keep it simple let just use the following groups:
 - **E** Polar
 
  <div align="center">
-    <img src="https://www.google.com.au/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj8jY-CipDXAhXD2LwKHRi0ALYQjRwIBw&url=http%3A%2F%2Fwww.blueplanetbiomes.org%2Fclimate.htm&psig=AOvVaw2UsN-_2djUCkW3ZSlwtmW4&ust=1509168761137330" alt="KOPPEN Classification"/>
+    <img src="http://www.goes-r.gov/users/comet/tropical/textbook_2nd_edition/media/graphics/koppen.jpg" alt="KOPPEN Classification"/>
   </div>
 
 Each group will have a specific mean temperature. We should go further in using the second and the third 
