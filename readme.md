@@ -2,7 +2,7 @@
 
 <div>
   <div align="center">
-    <img src="https://docs.google.com/drawings/d/1Q3qpaYW0OS3a0fcBObYDxwkp_vco-K92WNFwJ9Wflcc/pub?w=491&h=179" alt="logo"/>
+    <img src="https://cdn.yourstory.com/wp-content/uploads/2015/05/yourstory_climate_change1.jpg" alt="intro"/>
   </div>
   <div align="center">
     <a href="https://travis-ci.org/AntonyBrd/weather-simulation">
