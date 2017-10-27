@@ -1,6 +1,15 @@
 # Simulate Weather with Python
 
-[![Build Status](https://travis-ci.org/AntonyBrd/weather-simulation.svg?branch=master)](https://travis-ci.org/AntonyBrd/weather-simulation)
+<div>
+  <div align="center">
+    <img src="https://docs.google.com/drawings/d/1Q3qpaYW0OS3a0fcBObYDxwkp_vco-K92WNFwJ9Wflcc/pub?w=491&h=179" alt="logo"/>
+  </div>
+  <div align="center">
+    <a href="https://travis-ci.org/AntonyBrd/weather-simulation">
+      <img src="https://travis-ci.org/AntonyBrd/weather-simulation.svg?branch=master" alt="Build Status" />
+    </a>
+  </div>
+<div>
 
 This small project introduce a way to generate fake weather data with a very small code base. 
 The weather data is generated for the following cities:
@@ -47,7 +56,12 @@ precision, to keep it simple let just use the following groups:
 - **D** Cold
 - **E** Polar
 
-Each group will have a specific 
+ <div align="center">
+    <img src="https://www.google.com.au/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj8jY-CipDXAhXD2LwKHRi0ALYQjRwIBw&url=http%3A%2F%2Fwww.blueplanetbiomes.org%2Fclimate.htm&psig=AOvVaw2UsN-_2djUCkW3ZSlwtmW4&ust=1509168761137330" alt="KOPPEN Classification"/>
+  </div>
+
+Each group will have a specific mean temperature. We should go further in using the second and the third 
+letter of this classification to get more accurate simulations.
  
 ### Step 2: Create a list of city and get their climate
 
