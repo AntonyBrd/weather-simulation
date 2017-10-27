@@ -1,5 +1,7 @@
 # Simulate Weather with Python
 
+[![Build Status](https://travis-ci.org/AntonyBrd/weather-simulation.svg?branch=master)](https://travis-ci.org/AntonyBrd/weather-simulation)
+
 This small project introduce a way to generate fake weather data with a very small code base. 
 The weather data is generated for the following cities:
 - Sydney
