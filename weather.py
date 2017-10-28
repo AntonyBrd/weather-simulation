@@ -133,16 +133,18 @@ class Weather:
         """
         rand = np.random.uniform(0, 1, 1)
         low_pressure_factor = .35 if self.low_pressure else 0
-        low_temperature_factor = .35 if self.temperature < 3 else 0
+        low_temperature_factor = .25 if self.temperature < 5 else 0
         winter_factor = .3 if not self.is_summer() else 0
         if self.city.climate == 'A':
             climate_factor = 0
-        elif self.city.climate in ['B', 'C']:
+        elif self.city.climate == 'B':
             climate_factor = 1
+        elif self.city.climate in ['C', 'D']:
+            climate_factor = 1.15
         else:
-            climate_factor = 1.2
+            climate_factor = 1.3
 
-        if rand < climate_factor * low_temperature_factor:
+        if rand < climate_factor * low_temperature_factor * (1 + low_pressure_factor):
             self.condition = CONDITIONS[0]
         elif rand < climate_factor * (low_pressure_factor + winter_factor):
             self.condition = CONDITIONS[1]
