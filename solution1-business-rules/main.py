@@ -4,7 +4,14 @@ from city import City
 from weather import Weather, generate_date
 
 
-def main():
+def make_len_100(row):
+    if len(row) > 100:
+        return row[0:99]
+    elif len(row) < 100:
+        return row.ljust(100)
+
+
+def main(num_iter=1000):
     """
     Main job for this weather simulation application.
     """
@@ -26,10 +33,12 @@ def main():
 
     # Do 10 weather simulation for each city and write the outcome to a text file
     text_file = open("./weather_output.txt", "w")
-    for _ in xrange(9):
+    for i in xrange(num_iter):
+        if (i % 10) == 0:
+            print('Iteration {} / {}'.format(i, num_iter))
         for city in city_list:
             tmp_weather = Weather(city, generate_date())
-            text_file.write(tmp_weather.to_string() + '\n')
+            text_file.write(make_len_100(tmp_weather.to_string()) + '|\n')
     text_file.close()
 
 if __name__ == '__main__':
