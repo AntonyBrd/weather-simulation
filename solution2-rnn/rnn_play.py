@@ -44,12 +44,12 @@ pythonA2 = "checkpoints/rnn_train_1495458538-10200000"  # starts looking Tensorf
 pythonB10 = "checkpoints/rnn_train_1495458538-201600000"  # can even recite the Apache license
 """
 # use topn=10 for all but the last one which works with topn=2 for Shakespeare and topn=3 for Python
-#author = shakespeareB10
+model_ckpt = 'checkpoints/rnn_train_1509271644-2550000'
 
 ncnt = 0
 with tf.Session() as sess:
-    new_saver = tf.train.import_meta_graph('checkpoints/rnn_train_1509270798-0.meta')
-    new_saver.restore(sess, 'checkpoints/rnn_train_1509270798-0')
+    new_saver = tf.train.import_meta_graph(model_ckpt + '.meta')
+    new_saver.restore(sess, model_ckpt)
     x = my_txtutils.convert_from_alphabet(ord("L"))
     x = np.array([[x]])  # shape [BATCHSIZE, SEQLEN] with BATCHSIZE=1 and SEQLEN=1
 

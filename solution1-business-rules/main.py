@@ -20,7 +20,7 @@ def main(num_iter=1000):
     city_list = []
 
     # Open input json file containing all city information
-    with open('./data/test_set.json') as data_file:
+    with open('../data/test_set.json') as data_file:
         data = json.load(data_file)
 
     # Add each input city in the city list
