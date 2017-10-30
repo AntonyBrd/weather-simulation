@@ -86,6 +86,11 @@ First of all, we simulate the date, randomly following the uniform law.
 
 Once the date is available, we simulate the pressure because we have an accurate idea of what this could be thanks
 to the [formula of barometric leveling](https://en.wikipedia.org/wiki/Barometric_formula).
+
+ <div align="center">
+    <img src="../resources/pressure_formula.pngg" alt="formula of barometric leveling"/>
+  </div>
+
 We introduce noise to this estimation to get different value at each run.
 
 Now, we know that if the pressure value is lower than usual it is more likely to rain, or to have
