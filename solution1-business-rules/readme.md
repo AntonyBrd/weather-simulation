@@ -88,7 +88,7 @@ Once the date is available, we simulate the pressure because we have an accurate
 to the [formula of barometric leveling](https://en.wikipedia.org/wiki/Barometric_formula).
 
  <div align="center">
-    <img src="../resources/pressure_formula.pngg" alt="formula of barometric leveling"/>
+    <img src="../resources/pressure_formula.png" alt="formula of barometric leveling"/>
   </div>
 
 We introduce noise to this estimation to get different value at each run.
