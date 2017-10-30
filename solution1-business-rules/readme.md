@@ -1,27 +1,20 @@
-# Simulate Weather with Python
+# Simulate Weather with basic physic knowledge and gaussian random variable
 
 <div>
   <div align="center">
-    <img src="https://cdn.yourstory.com/wp-content/uploads/2015/05/yourstory_climate_change1.jpg" alt="intro"/>
-  </div>
-  <div align="center">
-    <a href="https://travis-ci.org/AntonyBrd/weather-simulation">
-      <img src="https://travis-ci.org/AntonyBrd/weather-simulation.svg?branch=master" alt="Build Status" />
-    </a>
+    <img src="http://www.tpub.com/inteng/7.htm1.gif" alt="Solution 1 image"/>
   </div>
 <div>
 
-This small project introduce a way to generate fake weather data with a very small code base. 
-The weather data is generated for the following cities:
-- Sydney
-- Darwin
-- Paris
-- Toulouse
-- ...
+The first solution to the weather simulation problem use mainly Gaussian randomness and common sense to generate
+reliable data.
 
 ## How to use the application
 
 ### Pre requirements
+
+Go to this solution folder, get the following tools:
+
 - Python 2.7
 - install pip
 - run the following command

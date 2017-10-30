@@ -1,12 +1,9 @@
-# Simulate Weather with Python
+# Simulate Weather using a Recurrent Neural Network 
 
 <div>
   <div align="center">
-    <img src="https://cdn.yourstory.com/wp-content/uploads/2015/05/yourstory_climate_change1.jpg" alt="intro"/>
-  </div>
-  <div align="center">
-    <a href="https://travis-ci.org/AntonyBrd/weather-simulation">
-      <img src="https://travis-ci.org/AntonyBrd/weather-simulation.svg?branch=master" alt="Build Status" />
+    <a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/">
+      <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" alt="Deep Learning Theory" />
     </a>
   </div>
 <div>
@@ -26,6 +23,8 @@ The complete code he wrote can be found
 [on his Githib repository](https://github.com/martin-gorner/tensorflow-rnn-shakespeare).
 
 # Theoretical aspect of the solution
+
+[!](../resources/RNN.BDU.dataflow.png)
 
 # Practical aspect of the solution
 
@@ -140,3 +139,25 @@ Sydney|151.21,-33.87,19|2010-11-11T01:44:11Z|Sunny|+21.1|1013.4|41.0
 
 Whereas cities follow the define order that we gave in the input file (), the date and the weather data
 has been generated, and it is very loyal to the rules we defined in the first solution.
+
+## RNN known limitation
+
+Keep in mid that the data structure remain the same all the time. Also, . As a consequence, building a model that 
+produce real text, sounds or images will be far more complicated, and it will need a tremendously longer computation
+time to train.
+
+Indeed, RNN may need to remember all previous states at any given time. If you are processing a lot of data, we will
+need a huge amount computational resources. Of course, we can use only a part of these previous states in keeping only a
+ time window.
+
+With RNN we may encounter issues with gradient descent, such as
+[Vanishing](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) or
+Exploding gradient (see [this article](http://www.cs.toronto.edu/~rgrosse/courses/csc321_2017/readings/L15%20Exploding%20and%20Vanishing%20Gradients.pdf)
+from Toronto University). Just notice that you may waste your time in training for 100 epochs, as the model will quickly
+ stop to get better. In my example I've stopped the training at 2.5 epochs, and I could have stopped it at 1.5.
+
+## Source
+
+Free lecture on Deep Learning with Tensor Flow : [Big Data University](https://cognitiveclass.ai/courses/deep-learning-tensorflow/)
+
+https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/
