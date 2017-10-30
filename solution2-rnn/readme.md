@@ -24,7 +24,7 @@ The complete code he wrote can be found
 
 # Theoretical aspect of the solution
 
-[!](../resources/RNN.BDU.dataflow.png)
+![](../resources/RNN.BDU.dataflow.png)
 
 # Practical aspect of the solution
 
