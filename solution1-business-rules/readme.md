@@ -109,7 +109,7 @@ Now, we know that if the pressure value is lower than usual it is more likely to
 a low temperature. Depending on season and pressure, we can simulate the temperature using a very basic
 algorithm, which works like a decision tree, with business rules relying on different factors.
 
-The figure above describes how the algorithm work :
+The figure above describes how the algorithm randomly generate temperature:
 
 <div align="center">
   <img src="../resources/SOL1_T_ALGO.png" alt="Algorithm to simulate temperature" height="500"/>
