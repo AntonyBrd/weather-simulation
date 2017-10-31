@@ -98,7 +98,7 @@ Once the date is available, we simulate the pressure because we have an accurate
 to the [formula of barometric leveling](https://en.wikipedia.org/wiki/Barometric_formula).
 
 <div align="center">
-  <img src="../resources/pressure_formula.png" alt="formula of barometric leveling" height="40"/>
+  <img src="../resources/pressure_formula.png" alt="formula of barometric leveling" height="70"/>
 </div>
 
 This theoretical formula is valid under "normal" temperature and air conditions. We need introduce noise to this
@@ -112,7 +112,7 @@ algorithm, which works like a decision tree, with business rules relying on diff
 The figure above describes how the algorithm work :
 
 <div align="center">
-  <img src="../resources/SOL2_T_ALGO.png" alt="Algorithm to simulate temperature"/>
+  <img src="../resources/SOL1_T_ALGO.png" alt="Algorithm to simulate temperature"/>
 </div>
 
 The temperature _t_, is simulated using a gaussian variable with parameters _mu_ and _sigma_. _Mu_, the mean, depends
