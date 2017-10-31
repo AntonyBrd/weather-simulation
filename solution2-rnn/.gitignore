@@ -1,2 +1,4 @@
+# Save the model quite often is interesting but there is no point in saving model in Github.
 checkpoints/
+# logs are used to get an overview are the process using Tensorboard.
 log/

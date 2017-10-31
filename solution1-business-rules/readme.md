@@ -22,6 +22,8 @@ Go to this solution folder, get the following tools:
 pip install -r requirement.txt
 ```
 
+### Launch the application
+
 Generating data files is as simple as running the command :
 ```
 python main.py
@@ -49,12 +51,12 @@ precision, to keep it simple let just use the following groups:
 - **D** Cold
 - **E** Polar
 
- <div align="center">
-    <img src="http://www.goes-r.gov/users/comet/tropical/textbook_2nd_edition/media/graphics/koppen.jpg" alt="KOPPEN Classification"/>
-  </div>
+<div align="center">
+  <img src="http://www.goes-r.gov/users/comet/tropical/textbook_2nd_edition/media/graphics/koppen.jpg" alt="KOPPEN Classification"/>
+</div>
 
 Each group will have a specific mean temperature. We should go further in using the second and the third 
-letter of this classification to get more accurate simulations.
+letter of this classification to get more accurate simulations (dry vs humid cities, etc..).
  
 ### Step 2: Create a list of city and get their climate
 
@@ -67,30 +69,57 @@ There is a [Wikipedia Python package](https://pypi.python.org/pypi/wikipedia) th
 2.c Set manually the city elevation in json data <br>
 _NB: This step should also be automatic if my first API choice have been smarter_
 
+City input example:
+```
+{
+    "name": "Paris",
+    "country": "fr",
+    "climate": "C",
+    "elevation": 35
+}
+```
+We should only give City name and country code.
+
 ### Step 3: Use an API to get City position
 
 I choose to use the [OpenWeatherMap API](https://openweathermap.org/current), which turned out not to be a great idea. 
-Indeed, I do not use provided weather information but only the coordinate and O do not get
+Indeed, I do not use provided weather information but only the coordinate and I do not get
 the city elevation data.
 
 ### Step 4: Simulate data
 
-First of all, we simulate the date, randomly following the uniform law.
+All the algorithm used to complete the simulation can be found in the [weather.py]('./weathear.py') file.
+
+First of all, we simulate the date, randomly following the uniform law between two date (here January 2nd, 2000 and
+January 1st 2015). The date with the longitude allow to get an idea of the season. To keep it very simple, we will only
+check if the season is summer or not.
 
 Once the date is available, we simulate the pressure because we have an accurate idea of what this could be thanks
 to the [formula of barometric leveling](https://en.wikipedia.org/wiki/Barometric_formula).
 
- <div align="center">
-    <img src="../resources/pressure_formula.png" alt="formula of barometric leveling" width:"50%" height:"50%"/>
-  </div>
+<div align="center">
+  <img src="../resources/pressure_formula.png" alt="formula of barometric leveling" height="40"/>
+</div>
 
-We introduce noise to this estimation to get different value at each run.
+This theoretical formula is valid under "normal" temperature and air conditions. We need introduce noise to this
+estimation to get different value at each run, and also because we want to have quite different values then "normal"
+ones.
 
 Now, we know that if the pressure value is lower than usual it is more likely to rain, or to have
 a low temperature. Depending on season and pressure, we can simulate the temperature using a very basic
-algorithm, which works like a decision tree.
+algorithm, which works like a decision tree, with business rules relying on different factors.
 
-Following this process, we simulate the condition and finally the humidity,
+The figure above describes how the algorithm work :
+
+<div align="center">
+  <img src="../resources/SOL2_T_ALGO.png" alt="Algorithm to simulate temperature"/>
+</div>
+
+The temperature _t_, is simulated using a gaussian variable with parameters _mu_ and _sigma_. _Mu_, the mean, depends
+on the climate, seasonal factors (_a1_ and _a2_) and a pressure factor (_b_). _Sigma_, the standard deviation, is given
+by the user, but it could also be determined using a basic algorithm.
+
+Following this process and other similar algorithms, we simulate the condition and finally the humidity,
 each step having access to more information than the previous one.
 
  
@@ -102,8 +131,8 @@ Very simple step, using basic Python.
 
 Dealing with weather simulation, we need to defined a set of concepts:
 
-- a city is defined by the following attributes: name, country, coordinate (lat/lon), elevation.
-- the weather in a city makes sense only at a specific moment. Here is the attribute list for weather: city, date,
+- A city is defined by the following attributes: name, country, coordinate (lat/lon), elevation.
+- The weather in a city makes sense only at a specific moment. Here is the attribute list for weather: city, date,
 conditions, pressure, temperature, and humidity.
 
 Each concept has its own class, its own file, and its own objective.
@@ -123,7 +152,7 @@ This script launches the application by reading json input data from the data di
 For each city being in the input file, it simulates the weather and write the result into a file. The
 process is done 10 times increase the outfile file size.
 
-## How to improve this application
+## How to improve this solution
 
 There are many ways to improve this project, let's try to make it smarter.
 
@@ -148,14 +177,16 @@ application.
 The same way we have computed each feature one by one, the next depending on
 the previous one. We could have train different algorithms to predict those values.
 
-#### Neural nets to invent data
+#### Neural nets to create fake data
 
 There are Neural Network specialised in data generation that it would be great to test.
 For example, RNN are able to write theatre piece that have a very good structure, with a lot of input data we could 
 generate data for cities that does not even exist. 
 
-Here is a very nice example of how to build a RNN with Tensorflow :
-https://github.com/martin-gorner/tensorflow-rnn-shakespeare
+Here is a very nice example of how to build a RNN with Tensorflow:
+[Martin Groner's Github](https://github.com/martin-gorner/tensorflow-rnn-shakespeare)
+
+RNN are tested in solution 2 of this project.
 
 ### Plot this data on a world map
 
