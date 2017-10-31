@@ -112,7 +112,7 @@ algorithm, which works like a decision tree, with business rules relying on diff
 The figure above describes how the algorithm work :
 
 <div align="center">
-  <img src="../resources/SOL1_T_ALGO.png" alt="Algorithm to simulate temperature"/>
+  <img src="../resources/SOL1_T_ALGO.png" alt="Algorithm to simulate temperature" height="500"/>
 </div>
 
 The temperature _t_, is simulated using a gaussian variable with parameters _mu_ and _sigma_. _Mu_, the mean, depends
